@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <div style="background-color: blueviolet;">
+    <h2 style="color: white; text-align: center;">Quanto eu devo pagar?</h2>
+    <br>
+    <h3 style= "color: white; text-align: center;">Saiba aqui o valor exato que você irá pagar no estacionamento.</h3>
+    <br>
+    <!-- o usuário irá apontar às horas em que ele chegou e estacionou na vaga-->
+    <div id="primeira_hora">
+        <b style= "color: white; text-align: center;"> Insira aqui o horário em que você estacionou:</b>
+        <input type="text" id="ipt_primhora">
+        <br>
+        <!-- Nessa parte, assim que o usuario selecionar o periodo em que estacionou, será aplicado uma tava em cima do valor fixo do estacionamento -->
+        <b style= "color: white; text-align: center;"> Em qual periodo você estacionou?</b>
+        <select id="lista_periodo">
+            <option value="manhã">Manhã</option>
+            <option value="tarde">Tarde</option>
+            <option value="noite">Noite</option>
+        </select>
+        <input type="text" id="periodo" style= "background-color: blueviolet;">
+        <br>
+        <!-- O usuário aponta a hora exata em que ele saiu do estacionamento -->
+        <b style= "color: white; text-align: center;">Insira aqui o horário da sua saída:</b>
+        <input type="text" id="ipt_seghora">
+    </div>
+    <div id= "periodo_m" style="display: none;">
+        <h3 style= "color: white; text-align: center;">Você irá pagar:</h3>
+        <br>
+        <!-- Caso o cliente estacionou de manhã (a partir das 07:00) e saiu de noite (a partir das 18:01), iremos aplicar a taxa do três periodos -->
+        <b style= "color: white; text-align: center;"> Valor do periodo da manhã:</b>
+        <span id="valor_m"></span> 
+        <br>
+        </div>
+       
+        <!-- Caso o cliente estacionou de tarde (a partir de 12:01) e saiu de noite (que conta à partir das 18:01), iremos aplicar a taxa dos dois periodos -->
+        <div id="periodo_t" style="display: none;">
+        <b style= "color: white; text-align: center;"> Valor do periodo da tarde:</b>
+        <span id="valor_t"></span>
+        <br>
+    </div>
+        
+         <!-- Caso o cliente estacionou só de noite (a partir de 18:01), iremos aplicar a taxa só deste periodo -->
+         <div id="periodo_n" style="display: none">
+            <b style= "color: white; text-align: center;"> Valor do periodo da noite:</b>
+        <span id="valor_n"></span>
+        <br>
+        </div>
+        <button onclick="carro()"><img src="https://cdn.pixabay.com/photo/2012/04/14/15/42/car-34326_640.png" alt="carro" style = "width: 40px;  "></button>
+        </div>
+        </div> 
+    </body>
+</html> 
+
+</div>
+</div>
+
+        <script>
+           var primhora = 20.00;
+            var seghora = 10.00;
+
+            function carro(){
+
+                var cal_primhora = primhora * ipt_primhora.value * 20;
+
+                var cal_seghora = seghora * ipt_seghora.value * 10;
+
+                valor_m.innerHTML = `${Number(primhora) * 15}% `;
+            }
+        </script>
